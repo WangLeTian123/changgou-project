@@ -4,10 +4,10 @@ spring:
   application:
     name: goods
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.200.128:3306/changgou_goods?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.226.3:3302/changgou_goods?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
-    password: root
+    password: 123456
 eureka:
   client:
     service-url:
@@ -19,12 +19,12 @@ feign:
     enabled: true
 
 #hystrix 配置
-hystrix:
-  command:
-    default:
-      execution:
-        timeout:
-          #如果enabled设置为false，则请求超时交给ribbon控制
-          enabled: true
-        isolation:
-          strategy: SEMAPHORE
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        timeout:
+#          #如果enabled设置为false，则请求超时交给ribbon控制
+#          enabled: true
+#        isolation:
+#          strategy: SEMAPHORE

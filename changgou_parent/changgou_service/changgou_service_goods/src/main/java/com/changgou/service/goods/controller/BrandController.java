@@ -14,6 +14,10 @@ import java.util.Map;
 
 @RequestMapping("/brand")
 @RestController
+/**
+ * 跨域
+ */
+@CrossOrigin
 public class BrandController {
 
     @Autowired
@@ -65,7 +69,7 @@ public class BrandController {
 
     @GetMapping("/searchPage/{page}/{size}")
     public Result findPage(@RequestParam Map searchMap,@PathVariable("page")int page,@PathVariable("size") int size){
-        int i=1/0;
+//        int i=1/0;
         Page pageInfo = brandService.findPage(searchMap, page, size);
         PageResult pageResult = new PageResult(pageInfo.getTotal(),pageInfo.getResult());
         return new Result(true,StatusCode.OK,"查询成功",pageResult);
