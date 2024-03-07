@@ -1,8 +1,9 @@
 package com.changgou.service.goods.service.impl;
 
-import com.changgou.goods.dao.TemplateMapper;
-import com.changgou.goods.service.TemplateService;
+
 import com.changgou.goods.pojo.Template;
+import com.changgou.service.goods.dao.TemplateMapper;
+import com.changgou.service.goods.service.TemplateService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;

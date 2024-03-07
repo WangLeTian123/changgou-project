@@ -1,9 +1,10 @@
 package com.changgou.service.goods.controller;
-import com.changgou.entity.PageResult;
-import com.changgou.entity.Result;
-import com.changgou.entity.StatusCode;
-import com.changgou.goods.service.SpecService;
+
+import com.changgou.common.pojo.PageResult;
+import com.changgou.common.pojo.Result;
+import com.changgou.common.pojo.StatusCode;
 import com.changgou.goods.pojo.Spec;
+import com.changgou.service.goods.service.SpecService;
 import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

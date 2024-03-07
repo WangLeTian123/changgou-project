@@ -1,10 +1,11 @@
 package com.changgou.service.goods.service.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.changgou.goods.dao.*;
+
+import com.changgou.common.util.IdWorker;
 import com.changgou.goods.pojo.*;
-import com.changgou.goods.service.SpuService;
-import com.changgou.util.IdWorker;
+import com.changgou.service.goods.dao.*;
+import com.changgou.service.goods.service.SpuService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.apache.commons.lang.StringUtils;
