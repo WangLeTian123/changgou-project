@@ -1,8 +1,7 @@
 package com.changgou.file.controller;
 
-
-import com.changgou.common.pojo.Result;
-import com.changgou.common.pojo.StatusCode;
+import com.changgou.entity.Result;
+import com.changgou.entity.StatusCode;
 import com.changgou.file.util.FastDFSClient;
 import com.changgou.file.util.FastDFSFile;
 import org.apache.commons.lang.StringUtils;
@@ -38,9 +37,11 @@ public class FileController {
             FastDFSFile fastDFSFile = new FastDFSFile(originalFilename,content,extName);
 
             //基于工具类进行文件上传,并接受返回参数  String[]
-            FastDFSClient.upload(fastDFSFile);
+            String[] uploadResult = FastDFSClient.upload(fastDFSFile);
 
-            return new Result(true, StatusCode.OK,"文件上传成功");
+            //封装返回结果
+            String url = FastDFSClient.getTrackerUrl()+uploadResult[0]+"/"+uploadResult[1];
+            return new Result(true,StatusCode.OK,"文件上传成功",url);
         }catch (Exception e){
             e.printStackTrace();
         }

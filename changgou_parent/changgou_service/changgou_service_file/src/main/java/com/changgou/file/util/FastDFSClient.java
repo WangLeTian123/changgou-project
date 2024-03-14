@@ -30,31 +30,24 @@ public class FastDFSClient {
      * @param file
      * @return 1.文件的组名  2.文件的路径信息
      */
-    public static void upload(FastDFSFile file) throws Exception {
+    public static String[] upload(FastDFSFile file) {
         //获取文件的作者
         NameValuePair[] meta_list = new NameValuePair[1];
         meta_list[0] = new NameValuePair("author", file.getAuthor());
 
-
-        TrackerClient trackerClient = new TrackerClient();
-        TrackerServer trackerServer = trackerClient.getConnection();
-
-        StorageClient storageClient = new StorageClient(trackerServer, null);
-        storageClient.upload_file(file.getContent(), file.getAuthor(), meta_list);
-
-        /*//接收返回数据
+        //接收返回数据
         String[] uploadResults = null;
         StorageClient storageClient=null;
         try {
             //创建StorageClient客户端对象
             storageClient = getTrackerClient();
 
-            *//***
+            /***
              * 文件上传
              * 1)文件字节数组
              * 2)文件扩展名
              * 3)文件作者
-             *//*
+             */
             uploadResults = storageClient.upload_file(file.getContent(), file.getExt(), meta_list);
         } catch (Exception e) {
             logger.error("Exception when uploadind the file:" + file.getName(), e);
@@ -63,7 +56,11 @@ public class FastDFSClient {
         if (uploadResults == null && storageClient!=null) {
             logger.error("upload file fail, error code:" + storageClient.getErrorCode());
         }
-        */
+        //获取组名
+        String groupName = uploadResults[0];
+        //获取文件存储路径
+        String remoteFileName = uploadResults[1];
+        return uploadResults;
     }
 
     /***
